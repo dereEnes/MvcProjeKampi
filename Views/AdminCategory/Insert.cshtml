@@ -1,0 +1,25 @@
+﻿@model Entity.Concrete.Category
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Insert</h2>
+
+<form class="form-group" method="post">
+
+    <input type="text" class="form-control"
+           placeholder="Kategori Adı" name="CategoryName" />
+    <br />
+    <textarea class="form-control"
+              placeholder="Kategori Açıklaması" name="CategoryDescription"></textarea>
+    <br />
+    <span class="ml-3">
+        <input type="checkbox" class="form-check-input" name="CategoryStatus" value="true" />
+        <label class="form-check-label" for="CategoryStatus">Status</label>
+    </span>
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+
+
+</form>
