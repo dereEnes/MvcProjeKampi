@@ -136,6 +136,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\AdminWriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,6 +202,7 @@
     <Content Include="AdminLTE-3.0.4\dist\img\prod-3.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-4.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-5.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\profil.jpeg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user1-128x128.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user2-160x160.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user3-128x128.jpg" />
@@ -2313,10 +2315,13 @@
     <Content Include="Views\Shared\_adminLayout.cshtml" />
     <Content Include="Views\AdminCategory\Index.cshtml" />
     <Content Include="Views\AdminCategory\Insert.cshtml" />
+    <Content Include="Views\AdminWriter\Index.cshtml" />
+    <Content Include="Views\AdminCategory\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Writer\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

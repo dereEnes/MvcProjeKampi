@@ -1,5 +1,5 @@
 ﻿@using Entity.Concrete
-@Model List<Category>
+@Model List<Writer>
     @{
         ViewBag.Title = "Index";
         Layout = "~/Views/Shared/_adminLayout.cshtml";
@@ -9,25 +9,28 @@
         <tr>
             <th>#</th>
             <th>AD</th>
-            <th>AÇIKLAMA</th>
-            <th>Durum</th>
+            <th>SOYAD</th>
+            <th>RESİM</th>
+            <th>MAİL</th>
+            <th>ŞİFRE</th>
             <th>Sil</th>
             <th>Güncelle</th>
             <th>Başlıklar</th>
         </tr>
-        @foreach (var category in Model)
+        @foreach (var writer in Model)
         {
             <tr>
-                <th>@category.CategoryId</th>
-                <td>@category.CategoryName</td>
-                <td>@category.CategoryDescription</td>
-                <td>@category.CategoryStatus</td>
-                <td><a href="/AdminCategory/Delete/@category.CategoryId" class="btn btn-danger">Sil</a></td>
-                <td><a href="/AdminCategory/Update/@category.CategoryId" class="btn btn-warning">Güncelle</a></td>
+                <th>@writer.WriterId</th>
+                <td>@writer.WriterName</td>
+                <td>@writer.WriterSurName</td>
+                <td>@writer.WriterImage</td>
+                <td>@writer.WriterMail</td>
+                <td>@writer.WriterPassword</td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-warning">Güncelle</a></td>
                 <td><a href="#" class="btn btn-primary">Başlıklar</a></td>
             </tr>
 
         }
     </table>
-    <br />
     <a href="/AdminCategory/Insert" class="btn btn-info">Yeni Kategori</a>
