@@ -19,6 +19,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult Index()
         {
             var result = _headingManager.GetAll();
+            ViewData["name"] = "Enes";
             return View(result);
         }
         [HttpPost]
@@ -52,18 +53,46 @@ namespace MvcProjeKampi.Controllers
             _headingManager.Delete(_headingManager.GetById(id));
             return RedirectToAction("Index");
         }
-        [HttpGet]
-        public ActionResult Update(int id)
-        {
-            Heading heading = _headingManager.GetById(id);
-            return View(heading);
-        }
+
         [HttpPost]
         public ActionResult Update(Heading heading)
         {
+
+            heading.HeadingStatus = false;
             _headingManager.Update(heading);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            List<SelectListItem> catetories = (from x in _categoryManager.GetAll()
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.CategoryName,
+                                                   Value = x.CategoryId.ToString()
+                                               }).ToList();
+
+            ViewBag.valueCategories = catetories;
+      
+            Heading heading = _headingManager.GetById(id);
+            return View(heading);
+        }
+        public ActionResult DeleteHeading(int id) 
+        {
+            var heading = _headingManager.GetById(id);
+            heading.HeadingStatus = false;
+            _headingManager.Update(heading);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Active(int id)
+        {
+            var heading = _headingManager.GetById(id);
+            heading.HeadingStatus = true;
+            _headingManager.Update(heading);
+            return RedirectToAction("Index");
+        }
+        
+        
         
 
     }

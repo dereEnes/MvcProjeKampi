@@ -35,7 +35,7 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -64,8 +64,11 @@
                             <th style="width: 20%">
                                 Başlık Adı
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 20%">
                                 Oluşturan Yazar
+                            </th>
+                            <th style="width: 15%">
+                                Durum
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
@@ -91,7 +94,7 @@
                             }
                             else
                             {
-                                  color = "badge badge-primary";
+                                color = "badge badge-primary";
                             }
                             <tr>
                                 <td>
@@ -113,6 +116,9 @@
                                         </li>
                                     </ul>
                                 </td>
+                                <td>
+                                    @item.HeadingStatus
+                                </td>
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
@@ -127,11 +133,23 @@
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/Delete/@item.HeadingId">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Sil
-                                    </a>
+                                    @if (item.HeadingStatus == true)
+                                    {
+                                        <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Sil
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-success btn-sm" href="/Heading/Active/@item.HeadingId">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Aktif Yap
+                                        </a>
+                                    }
+                                    
                                 </td>
                             </tr>
                         }
